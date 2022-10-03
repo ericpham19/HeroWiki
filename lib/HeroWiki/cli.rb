@@ -1,12 +1,14 @@
 class HeroWiki::CLI
+    include HeroWiki
     
     
         def call
             loading_message
-            # scrape data and display list
             greeting 
           
-           
+            Scraper.new.scrape
+         
+           menu
             
         end
 
@@ -14,17 +16,20 @@ class HeroWiki::CLI
             puts "Avengers Assembling..."
             puts "Time to defeat Thanos"
             puts "Avengers Here"
+            puts " "
         end
 
         def greeting
             puts "Welcome to HeroWiki! Tell me who is your favourite superhero/villian?"
-            puts ""
             puts "Enter the name of your desired character"
             puts "Or type exit to end the program"
             puts ""
         end
         
-   
+        def menu
+            list_options
+
+        end
 
 
 

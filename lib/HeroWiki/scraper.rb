@@ -1,12 +1,24 @@
-require 'nokogiri'
+ require 'nokogiri'
 require 'open-uri'
+require 'pry'
 class HeroWiki::Scraper 
 
-    @doc = Nokogiri::HTML(URI("https://marvelvscapcom.fandom.com/wiki/Category:Marvel_Characters").open)
+    def scrape
+        doc = Nokogiri::HTML(URI.open("https://marvelvscapcom.fandom.com/wiki/Category:Marvel_Characters"))
+        doc.css('.category-page__members').each do |tag|
+
+            name = tag.css('.category-page__member-link').map do |item|
+                item.text
+            end
+            
+
+        end
 
 
-    def self.scrape_heroes
-        self.scrape_heroes_data
+
+
+
+        
     end
 
 
