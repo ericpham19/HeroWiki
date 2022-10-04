@@ -1,3 +1,4 @@
+require 'pry'
 class HeroWiki::CLI
     include HeroWiki
     
@@ -6,7 +7,7 @@ class HeroWiki::CLI
             loading_message
             greeting 
           
-            Scraper.new.scrape
+           @hero_names =  Scraper.new.scrape
          
            menu
             
@@ -27,11 +28,17 @@ class HeroWiki::CLI
         end
         
         def menu
-            list_options
+          list_options
 
         end
 
-
+        def list_options
+    
+            @hero_names.each_with_index do |name , index|
+                puts "#{index + 1}. #{name}"
+            end
+        end
+        
 
 
 

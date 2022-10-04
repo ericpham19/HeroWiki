@@ -1,11 +1,11 @@
 class HeroWiki::Heroes
 
-    attr_accessor :title, :description, :abilities, :special_moves, :quotes, :link
+    attr_accessor :name, :description, :abilities, :special_moves, :quotes, :link
 
     @@heroes= []
 
-    def initialize(title, description, abilities, special_moves, quotes, link)
-        @title = title
+    def initialize(name, description, abilities, special_moves, quotes, link)
+        @name = name
         @description = description
         @abilities = abilities
         @special_moves = special_moves
