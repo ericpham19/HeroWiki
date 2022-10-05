@@ -6,9 +6,7 @@ class HeroWiki::CLI
         def call
             loading_message
             greeting 
-          
            @hero_names =  Scraper.new.scrape
-         
            menu
             
         end
@@ -29,18 +27,26 @@ class HeroWiki::CLI
         
         def menu
           list_options
-
+        input = gets.to_i
+        Scraper.new.scrape_details(@hero_names[input][1])
+            
         end
 
         def list_options
     
-            @hero_names.each_with_index do |name , index|
-                puts "#{index + 1}. #{name}"
+            @hero_names.each_with_index do |hero , index|
+                 puts "#{index }. #{hero[0]}"
+                
+              
             end
         end
         
+        # def display_hero(index)
+        #   hero = @hero_names.all[index]
+        #    Scraper.new.scrape_details(hero)
 
-
+        #   puts " You choose"
+        # end
 
 
 
