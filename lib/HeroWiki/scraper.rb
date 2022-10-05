@@ -10,6 +10,7 @@ class HeroWiki::Scraper
          
              tag.css('.category-page__member-link').map do |item|
                 url = "https://marvelvscapcom.fandom.com" + item.attributes.values[0].value
+            
                name =  item.text  
                 hero_array << [name, url]
                 
@@ -23,18 +24,22 @@ class HeroWiki::Scraper
    
 
      def scrape_details(url)
+        
        details = Nokogiri::HTML(URI.open(url))
-       details.css('.mw-parser-output').map do |tag|
-        binding.pry
-        if tag.css('.pull-quote__source') != nil
-            name = tag.css('.pull-quote__source')
-        end
-        if tag.css('.mw-parser-output p') != nil
-            description = tag.css('.mw-parser-output p')[2]
-            abilities = tag.css('.mw-parser-output p')[3]
-            quotes = tag.css('.mw-parser-output p')[1]
-        end
-        end
-     end
+    
+       details.css('.mw-parser-output').each do |tag|
+            
+             name = tag.css('.page-header__title').text.strip if tag.css('.page-header__title') != nil
+        
+            
+            # description = tag.css('.mw-parser-output p')[1].text.strip if tag.css('.mw-parser-output p') != nil
+          
+            # abilities = tag.css('.mw-parser-output p')[3]
+            # quotes = tag.css('.mw-parser-output p')[1]
+            # character = Heroes.new(name, description, abilities, quotes)
+
+         end
+    end
+
 end
 
