@@ -1,33 +1,24 @@
-# HeroWiki
+**CLI APPLICATION BUILT ON RUBY**
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/HeroWiki`. To experiment with that code, run `bin/console` for an interactive prompt.
+This CLI app provides details on a list of superheroes/villians from Marvel Studio. The data is scraped from a website called "https://marvelvscapcom.fandom.com/wiki/Category:Marvel_Characters". 
 
-TODO: Delete this and the text above, and describe your gem
+**Gems used in this application**
+. Open Uri
+. Nokogiri
+. Colorize
 
-## Installation
+**Getting Started**
 
-Install the gem and add to the application's Gemfile by executing:
+ Start the app by typing `irb` in your terminal
+ Run the program by typing `ruby bin/HeroWiki`
+ The program will be starting and showing the main page
 
-    $ bundle add HeroWiki
+<img src= "https://user-images.githubusercontent.com/107910127/194436077-be77cdd8-5731-434d-899f-eedafd159a27.JPG">
 
-If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install HeroWiki
+A list of names will be displayed. Choose a number between 1-60 to display the character of your choice
 
-## Usage
+<img src="https://user-images.githubusercontent.com/107910127/194436316-dc478533-a119-45ae-a698-297be35d1004.JPG">
 
-TODO: Write usage instructions here
+Follow the prompts given to either exit the program or go back to the list of characters.
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/HeroWiki. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/HeroWiki/blob/master/CODE_OF_CONDUCT.md).
-
-## Code of Conduct
-
-Everyone interacting in the HeroWiki project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/HeroWiki/blob/master/CODE_OF_CONDUCT.md).

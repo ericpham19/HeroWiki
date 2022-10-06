@@ -1,40 +1,35 @@
-require 'pry'
+   require 'pry'
 class HeroWiki::CLI
-    include HeroWiki
-    
-    
         def call
             loading_message
             greeting 
-           @hero_names =  Scraper.new.scrape
+           @hero_names =  HeroWiki::Scraper.new.scrape
+
+           HeroWiki::Logo.new.design
+           puts " "
             menu
-            
         end
 
         def loading_message
-            puts "Avengers Assembling..."
+            puts "Heroes..."
             puts "Time to defeat Thanos"
-            puts "Avengers Here"
+            puts "Heroes Here"
             puts " "
         end
 
         def greeting
             puts "Welcome to HeroWiki! Tell me who is your favourite superhero/villian?"
-          
-            puts ""
+            puts " "
         end
-        
+
         def menu
-         
-          
           list_options.each_with_index do |name, index|
             puts "#{index + 1  }. #{name[0]}"
           end
-
-        input = nil
+          input = nil
           while input != "exit"
             puts " "
-            puts "Enter the index of your desired character"
+            puts "Enter the index of your desired character (1-60)"
             puts " "
             input = gets.strip
             
@@ -51,11 +46,7 @@ class HeroWiki::CLI
                puts " "
                 end
          end
-              
-          
-           
-           
-
+    
         end
 
         def exit_program
@@ -77,13 +68,7 @@ class HeroWiki::CLI
             
           puts character[0]
             
-           array = HeroWiki::Scraper.new.scrape_details(character[1])
-         
-           
-    
-      
-           
-        #   array.css('.mw-parser-output p')[0].text.gsub(/\s+/,' ')
+         HeroWiki::Scraper.new.scrape_details(character[1])
         end
 
  
@@ -98,7 +83,7 @@ class HeroWiki::CLI
                     elsif result == "n" || result == "exit"
                         exit_program
                         else
-                            puts "Oh no, please try again"
+                            puts " Please try again"
                              puts " "
                         end
        end
