@@ -33,18 +33,22 @@ class HeroWiki::CLI
 
         input = nil
           while input != "exit"
-            
+            puts " "
             puts "Enter the index of your desired character"
+            puts " "
             input = gets.strip
             
             if input.to_i > 0
                 input = input.to_i
+                puts " "
                 display_character(list_options[input - 1])
-                
-              elsif input == "exit"
-                exit_program
-                else
-                    puts "Please try again"
+                puts " "
+                display_or_exit
+
+                 else
+               puts " "
+                puts "Please try again"
+               puts " "
                 end
          end
               
@@ -56,7 +60,7 @@ class HeroWiki::CLI
 
         def exit_program
             puts " "
-            puts "Thank you and see you again"
+            puts " Thank you and see you again "
             puts " "
             exit
         end
@@ -65,17 +69,21 @@ class HeroWiki::CLI
     
             @hero_names.each_with_index do |hero , index|
                  "#{index + 1 }. #{hero[0]}"
-                
-              
+
             end
         end
         
         def display_character(character)
             
           puts character[0]
-          Scraper.new.scrape_details(character[1])
             
+           array = HeroWiki::Scraper.new.scrape_details(character[1])
+         
            
+    
+      
+           
+        #   array.css('.mw-parser-output p')[0].text.gsub(/\s+/,' ')
         end
 
  
@@ -87,8 +95,7 @@ class HeroWiki::CLI
                     puts "Here is your selection"
                     puts " "
                     menu
-                    elsif answer == "n" || answer == "exit"
-                    
+                    elsif result == "n" || result == "exit"
                         exit_program
                         else
                             puts "Oh no, please try again"

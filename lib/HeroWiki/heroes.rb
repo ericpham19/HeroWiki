@@ -1,17 +1,18 @@
 class HeroWiki::Heroes
 
-    attr_accessor :name, :description, :abilities, :special_moves, :quotes
+    attr_accessor :name, :description, :quotes
 
     @@heroes= []
 
-    def initialize(name, description: nil, abilities: nil, special_moves: nil, quotes: nil)
+    def initialize(name, description,  quotes)
         @name = name
         @description = description
-        @abilities = abilities
-        @special_moves = special_moves
         @quotes = quotes
-        
         @@heroes << self
+    end
+
+    def to_s
+        "#{description}"
     end
 
     def self.heroes
