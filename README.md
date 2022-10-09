@@ -9,7 +9,7 @@ This CLI app provides details on a list of superheroes/villians from Marvel Stud
 
 **Getting Started**
 
- Start the app by typing `irb` in your terminal
+ Start the app opening up a terminal in your editor.
  Run the program by typing `ruby bin/HeroWiki`
  The program will be starting and showing the main page
 
